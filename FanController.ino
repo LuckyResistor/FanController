@@ -35,7 +35,7 @@ const uint8_t cTemperatureSensor2Pin = 4; // The pin for the second temperature 
 const uint8_t cSdCardChipSelectPin = 10; // The pin where the SD card chip select is connected.
 const uint16_t cUpdateDelay = 2200; // The update every ~2.2 seconds.
 const uint8_t cStartFanSpeed = 0x80; // The initial fan speed.
-const uint8_t cControlTargetTemperature = 30; // The maximum target temperature.
+const uint8_t cControlTargetTemperature = 31; // The maximum target temperature.
 
 // Custom characters for the LCD display.
 const uint8_t cFanCharacterMask[] PROGMEM = {
@@ -99,9 +99,9 @@ void setup() {
   analogWrite(cFanControlPin, 0x00);
 
   // Initialize the serial output.
-  Serial.begin(57600);
+  Serial.begin(115200);
   while (!Serial) { _NOP(); } // Wait until it is ready.
-  Serial.println(F("Starting Log Control"));
+  Serial.println(F("Starting Fan Controller"));
   
   // Setup the LCD display.
   lcd.begin(16, 2);
